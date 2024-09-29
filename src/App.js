@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Header from './header';
+import Footer from './footer';
+
+// Lazy load components
+const UserSelection = lazy(() => import('./userSelection'));
+const AdminLogin = lazy(() => import('./adminLogin'));
+const UserLogin = lazy(() => import('./userLogin'));
+const AdminDashboard = lazy(() => import('./adminDashboard'));
+const UserDashboard = lazy(() => import('./userDashboard'));
+
+const SuspenseHeading = lazy(() => import('./suspenseHeading'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <div
+        style={{
+          width: '100%',
+          margin: '0 auto',
+          borderTop: '1px solid #ffffff', 
+          marginTop: '10px', 
+        }}
+      />
+      <div className="App" >
+        <Suspense fallback={<SuspenseHeading />}>
+          <Routes>
+            <Route path="/" element={<UserSelection />} />
+            <Route path="/admin-login" element={<AdminLogin />} />
+            <Route path="/user-login" element={<UserLogin />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/user/dashboard" element={<UserDashboard />} />
+          </Routes>
+        </Suspense>
+      </div>
+      
+      <Footer />
+    </Router>
   );
 }
 

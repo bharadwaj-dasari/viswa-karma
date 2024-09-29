@@ -1,38 +1,48 @@
-.App {
+/* Global Styles */
+body {
+  font-family: 'Syne', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Black */
+  color: #ffffff; /* White */
+}
+
+button {
+  font-family: 'Syne', sans-serif;
+  cursor: pointer;
+  border: none;
+  padding: 10px 20px;
+  color: #ffffff; /* White */
+  background-color: #3399FF; /* Electric Blue */
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0077CC; /* Slightly darker Electric Blue */
+}
+
+header {
+  background-color: #000000; /* Black */
+  color: #ffffff; /* White */
   text-align: center;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff; /* White */
+  font-family: 'Syne', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Footer styles */
+footer {
+  font-size: 32px;
+  font-family: 'Syne', sans-serif;
+  color: #ffffff; /* White */
+  background-color: #000000; /* Black */
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
